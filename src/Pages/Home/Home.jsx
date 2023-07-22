@@ -1,9 +1,9 @@
-import MenuBar from "../Shared/MenuBar/MenuBar";
+import CollegeSection from "./CollegeSection/CollegeSection/CollegeSection";
 
 const Home = () => {
     return (
         <>
-            <MenuBar></MenuBar>
+            <CollegeSection></CollegeSection>
         </>
     );
 };

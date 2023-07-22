@@ -1,25 +1,24 @@
-// import { useContext } from 'react';
+import { useContext } from 'react';
 import { Button, Image, Nav, Navbar } from 'react-bootstrap';
-import { Link, } from 'react-router-dom';
-// import { AuthContext } from '../../../Providers/AuthProvider';
+import { Link, useLocation, } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const MenuBar = () => {
-    const user =1
-    // const { user, logOut } = useContext(AuthContext);
-    // const location = useLocation(); // location for isActive
+    const { user, logOut } = useContext(AuthContext);
+    const location = useLocation(); // location for isActive
 
-    // // handle logout
-    // const handleLogout = () => {
-    //     logOut()
-    //         .then()
-    //         .catch((error) => console.error(error));
-    // };
+    // handle logout
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch((error) => console.error(error));
+    };
             
     return (
         <div>
             <Navbar className='container p-2' expand='sm'>
                 <Navbar.Brand>
-                <Link to='/'><img src="/logo.png" alt="LegoLand Toy" className='img-fluid' style={{ height: '50px', width: 'auto' }} /></Link>
+                <Link to='/'><h3>CampusCare</h3></Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav'>
@@ -31,37 +30,28 @@ const MenuBar = () => {
                         </Link>
 
                         <Link
-                            to='/all-toys'
-                            className={`mx-3 text-decoration-none ${isActiveLink('/all-toys') ? 'fw-bold' : ''}`}>
-                            All Toys
+                            to='/colleges'
+                            className={`mx-3 text-decoration-none ${isActiveLink('/colleges') ? 'fw-bold' : ''}`}>
+                            Colleges
                         </Link>
 
-                        {user && (
-                            <>
-                                <Link
-                                    to='/myToys'
-                                    className={`mx-3 text-decoration-none ${isActiveLink('/my-toys') ? 'fw-bold' : ''}`}>
-                                    My Toys
-                                </Link>
-
-                                <Link
-                                    to='/add-toy'
-                                    className={`mx-3 text-decoration-none ${isActiveLink('/add-toy') ? 'fw-bold' : ''}`}>
-                                    Add A Toy
-                                </Link>
-                            </>
-                        )}
+                       
 
                         <Link
-                            to='/blogs'
-                            className={`mx-3 text-decoration-none ${isActiveLink('/blogs') ? 'fw-bold' : ''}`}>
-                            Blogs
+                            to='/admission'
+                            className={`mx-3 text-decoration-none ${isActiveLink('/admission') ? 'fw-bold' : ''}`}>
+                            Admission
+                        </Link>
+                        <Link
+                            to='/mycollege'
+                            className={`mx-3 text-decoration-none ${isActiveLink('/mycollege') ? 'fw-bold' : ''}`}>
+                            My College
                         </Link>
                     </Nav>
                     {user ? (
                         <div className='d-flex'>
                             
-                            <Button  variant='secondary' className='me-1 btn-sm'>
+                            <Button onClick={handleLogout} variant='secondary' className='me-1 btn-sm'>
                                 Logout
                             </Button>
                             <div data-toggle='tooltip' title={user.displayName}>

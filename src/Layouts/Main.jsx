@@ -1,9 +1,11 @@
-import Home from "../Pages/Home/Home";
+import { Outlet } from "react-router-dom";
+import MenuBar from "../Pages/Shared/MenuBar/MenuBar";
 
 const Main = () => {
     return (
         <>
-            <Home></Home>
+            <MenuBar></MenuBar>
+            <Outlet></Outlet>
         </>
     );
 };
