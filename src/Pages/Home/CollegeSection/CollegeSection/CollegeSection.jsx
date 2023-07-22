@@ -3,6 +3,7 @@ import CollegeCard from "../CollegeCard/CollegeCard";
 
 const colleges = [
   {
+    id:1,
     name: 'Sample College 1',
     image: 'https://source.unsplash.com/random/800x607/?college',
     admissionDates: 'August 15 - September 30',
@@ -11,6 +12,7 @@ const colleges = [
     sports: 'Football, Basketball, Tennis',
   },
   {
+    id:2,
     name: 'Sample College 1',
     image: 'https://source.unsplash.com/random/800x607/?college',
     admissionDates: 'August 15 - September 30',
@@ -19,6 +21,7 @@ const colleges = [
     sports: 'Football, Basketball, Tennis',
   },
   {
+    id:3,
     name: 'Sample College 1',
     image: 'https://source.unsplash.com/random/800x607/?college',
     admissionDates: 'August 15 - September 30',

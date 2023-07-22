@@ -3,6 +3,7 @@ import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register";
+import CollegeDetails from "../Pages/CollegeDetails/CollegeDetails";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path:'signup',
                 element:<Register></Register>
+            },
+            {
+                path:'/colleges/:id',
+                element:<CollegeDetails></CollegeDetails>
             }
         ]
     }
