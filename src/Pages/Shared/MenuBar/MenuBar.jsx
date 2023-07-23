@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Button, Image, Nav, Navbar } from 'react-bootstrap';
+import { Button,  Nav, Navbar } from 'react-bootstrap';
 import { Link, useLocation, } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
@@ -50,13 +50,14 @@ const MenuBar = () => {
                     </Nav>
                     {user ? (
                         <div className='d-flex'>
-                            
-                            <Button onClick={handleLogout} variant='secondary' className='me-1 btn-sm'>
+                            <div data-toggle='tooltip' title={user.displayName}>
+                                <p>{user.displayName||'USER'}</p>
+                            </div>
+
+                            <Button onClick={handleLogout} variant='secondary' className='ms-1 btn-sm'>
                                 Logout
                             </Button>
-                            <div data-toggle='tooltip' title={user.displayName}>
-                                <Image src={user?.photoURL || 'https://picsum.photos/200'} roundedCircle height={35} />
-                            </div>
+                            
                         </div>
                     ) : (
                         <Link to='/login'>

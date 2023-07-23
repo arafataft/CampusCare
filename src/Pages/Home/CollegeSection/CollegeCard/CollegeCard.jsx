@@ -21,7 +21,7 @@ const CollegeCard = ({ college }) => {
           <strong>Sports:</strong> {college.sports}
         </Card.Text>
 
-        <Link to={`/colleges/${college.id}`}>
+        <Link to={`/colleges/${college._id}`}>
           <Button variant="primary">Details</Button>
         </Link>
       </Card.Body>

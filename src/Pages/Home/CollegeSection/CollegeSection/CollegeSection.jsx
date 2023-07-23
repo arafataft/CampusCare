@@ -1,44 +1,32 @@
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import CollegeCard from "../CollegeCard/CollegeCard";
-
-const colleges = [
-  {
-    id:1,
-    name: 'Sample College 1',
-    image: 'https://source.unsplash.com/random/800x607/?college',
-    admissionDates: 'August 15 - September 30',
-    events: 'College Fest, Career Fair',
-    researchHistory: 'Founded in 1950, 50+ years of research excellence',
-    sports: 'Football, Basketball, Tennis',
-  },
-  {
-    id:2,
-    name: 'Sample College 1',
-    image: 'https://source.unsplash.com/random/800x607/?college',
-    admissionDates: 'August 15 - September 30',
-    events: 'College Fest, Career Fair',
-    researchHistory: 'Founded in 1950, 50+ years of research excellence',
-    sports: 'Football, Basketball, Tennis',
-  },
-  {
-    id:3,
-    name: 'Sample College 1',
-    image: 'https://source.unsplash.com/random/800x607/?college',
-    admissionDates: 'August 15 - September 30',
-    events: 'College Fest, Career Fair',
-    researchHistory: 'Founded in 1950, 50+ years of research excellence',
-    sports: 'Football, Basketball, Tennis',
-  },
-  
-];
+import axios from "axios";
 
 const CollegeSection = () => {
+  const [colleges, setColleges] = useState([]);
+
+  useEffect(() => {
+    // Function to fetch data from the backend API
+    const fetchColleges = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/colleges");
+        const data = response.data.slice(0, 3); // Show only the first three records
+        setColleges(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchColleges();
+  }, []); 
+
   return (
     <Container>
       <h2 className="text-center">Colleges</h2>
       <div className="row">
-        {colleges.map((college, index) => (
-          <div key={index} className="col-md-4 mb-4">
+        {colleges.map((college) => (
+          <div key={college._id} className="col-md-4 mb-4">
             <CollegeCard college={college} />
           </div>
         ))}
