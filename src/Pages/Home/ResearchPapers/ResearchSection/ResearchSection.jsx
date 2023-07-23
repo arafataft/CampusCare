@@ -11,6 +11,10 @@ const recommendedPapers = [
     title: 'Research Paper 2',
     url: 'https://example.com/paper2',
   },
+  {
+    title: 'Research Paper 3',
+    url: 'https://example.com/paper2',
+  },
   // Add more research paper objects here...
 ];
 

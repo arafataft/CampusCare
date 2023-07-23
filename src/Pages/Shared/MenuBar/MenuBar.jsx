@@ -18,7 +18,7 @@ const MenuBar = () => {
         <div>
             <Navbar className='container p-2' expand='sm'>
                 <Navbar.Brand>
-                <Link to='/'><h3>CampusCare</h3></Link>
+                <Link to='/' className='text-decoration-none'><h3>CampusCare</h3></Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav'>
