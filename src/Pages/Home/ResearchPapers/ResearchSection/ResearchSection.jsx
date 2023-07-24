@@ -1,24 +1,25 @@
-
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import ResearchPapers from "../ResearchPapers/ResearchPapers";
-
-const recommendedPapers = [
-  {
-    title: 'Research Paper 1',
-    url: 'https://example.com/paper1',
-  },
-  {
-    title: 'Research Paper 2',
-    url: 'https://example.com/paper2',
-  },
-  {
-    title: 'Research Paper 3',
-    url: 'https://example.com/paper2',
-  },
-  // Add more research paper objects here...
-];
+import axios from "axios";
 
 const ResearchSection = () => {
+  const [recommendedPapers, setRecommendedPapers] = useState([]);
+
+  useEffect(() => {
+    // Function to fetch data for recommended research papers from the backend API
+    const fetchRecommendedPapers = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/paper");
+        setRecommendedPapers(response.data);
+      } catch (error) {
+        console.error("Error fetching recommended papers:", error);
+      }
+    };
+
+    fetchRecommendedPapers();
+  }, []);
+
   return (
     <Container>
       <ResearchPapers recommendedPapers={recommendedPapers} />

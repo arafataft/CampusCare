@@ -13,7 +13,6 @@ const reviewsData = [
     reviewerName: 'Jane Smith',
     reviewText: 'I had a wonderful experience studying at this college.',
   },
-  // Add more review objects here...
 ];
 
 const ReviewsSection = () => {
