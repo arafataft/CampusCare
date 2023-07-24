@@ -1,10 +1,10 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 import { Container, Col, Card, Form, Button } from 'react-bootstrap';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 
 
@@ -17,9 +17,19 @@ const Login = () => {
 
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  const provider1 = new GithubAuthProvider();
 
   const handleGoogleLogin = () => {
     signInWithPopup(auth, provider)
+      .then(() => {
+        navigate(from);
+        setError(null);
+        alert("Login Success");
+      })
+      .catch(error => console.error(error.message))
+  }
+  const handleGithubLogin = () => {
+    signInWithPopup(auth, provider1)
       .then(() => {
         navigate(from);
         setError(null);
@@ -76,6 +86,7 @@ const Login = () => {
             </Form>
             <p className="text-center mt-3">New to LegoLand Toys? <Link to="/signup">Sign Up</Link></p>
             <Button onClick={handleGoogleLogin} className='mb-2 mx-auto d-block' variant="outline-primary"> <FaGoogle /> Login with Google</Button>
+            <Button onClick={handleGithubLogin} className='mb-2 mx-auto d-block' variant="outline-primary"> <FaGithub /> Login with GitHub</Button>
           </Card.Body>
         </Card>
       </Col>

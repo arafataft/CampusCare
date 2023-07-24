@@ -1,27 +1,28 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import CollegeReviews from './CollegeReviews';
 
-const reviewsData = [
-  {
-    collegeName: 'Sample College 1',
-    rating: 4.5,
-    reviewerName: 'John Doe',
-    reviewText: 'This college has an excellent faculty and a great campus environment.',
-  },
-  {
-    collegeName: 'Sample College 2',
-    rating: 5,
-    reviewerName: 'Jane Smith',
-    reviewText: 'I had a wonderful experience studying at this college.',
-  },
-];
-
 const ReviewsSection = () => {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    // Fetch reviews from the backend
+    axios
+      .get('http://localhost:3000/reviews')
+      .then((response) => {
+        setReviews(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching reviews:', error);
+      });
+  }, []);
+
   return (
     <div className="container py-5">
       <h1 className="text-center">Student Reviews</h1>
       <div className="row justify-content-center">
         <div className="col-lg-8">
-          <CollegeReviews reviews={reviewsData} />
+          <CollegeReviews reviews={reviews} />
         </div>
       </div>
     </div>

@@ -13,9 +13,9 @@ const CollegeReviews = ({ reviews }) => {
               <strong>Rating: {review.rating}</strong>
             </Card.Text>
             <Card.Text>
-              <strong>Reviewer: </strong> {review.reviewerName}
+              <strong>Reviewer: </strong> {review.name}
             </Card.Text>
-            <Card.Text>{review.reviewText}</Card.Text>
+            <Card.Text>{review.text}</Card.Text>
           </Card.Body>
         </Card>
       ))}
