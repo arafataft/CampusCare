@@ -10,7 +10,7 @@ const ResearchSection = () => {
     // Function to fetch data for recommended research papers from the backend API
     const fetchRecommendedPapers = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/paper");
+        const response = await axios.get("https://campus-care-server.vercel.app/paper");
         setRecommendedPapers(response.data);
       } catch (error) {
         console.error("Error fetching recommended papers:", error);

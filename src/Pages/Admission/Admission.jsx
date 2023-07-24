@@ -20,7 +20,7 @@ const Admission = () => {
     console.log(data);
     data.collegeName=collegeName;
     // Post data to the backend
-    axios.post('http://localhost:3000/admission', data)
+    axios.post('https://campus-care-server.vercel.app/admission', data)
       .then((response) => {
         console.log('Data submitted successfully!', response.data);
         if (response.data.error) {

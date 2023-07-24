@@ -16,7 +16,7 @@ const MyCollege = () => {
     data.email = collegeDetails.email;
 
     axios
-      .post('http://localhost:3000/reviews', data)
+      .post('https://campus-care-server.vercel.app/reviews', data)
       .then((response) => {
         console.log('Review submitted successfully!', response.data);
         // Reset the form after successful submission
@@ -29,7 +29,7 @@ const MyCollege = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/mycollege?email=${user?.email}`)
+      .get(`https://campus-care-server.vercel.app/mycollege?email=${user?.email}`)
       .then((response) => {
         setCollegeDetails(response.data);
       })

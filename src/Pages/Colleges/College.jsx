@@ -11,7 +11,7 @@ const CollegeSection = () => {
     // Function to fetch data from the backend API
     const fetchColleges = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/colleges");
+        const response = await axios.get("https://campus-care-server.vercel.app/colleges");
         const data = response.data; 
         setColleges(data);
       } catch (error) {

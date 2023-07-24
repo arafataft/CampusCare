@@ -8,7 +8,7 @@ const ReviewsSection = () => {
   useEffect(() => {
     // Fetch reviews from the backend
     axios
-      .get('http://localhost:3000/reviews')
+      .get('https://campus-care-server.vercel.app/reviews')
       .then((response) => {
         setReviews(response.data);
       })
